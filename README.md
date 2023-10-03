@@ -6,9 +6,7 @@ While I made the server.py the /js/script.js file is entirely the creation of Po
 https://github.com/Pxmme  
 https://twitter.com/pxmme1337  
 
-
-# Instructions:
-Fresh Ubuntu 22.04, open root  
+# Install Notes (ubuntu 22.04/debian): 
     pip install -r requirements.txt    
 
 
