@@ -2,9 +2,9 @@
 Talk to GPT over Browser  
 
 # Note:  
-While I made the server.py the /js/script.js file is entirely the creation of Pomme  
-https://github.com/Pxmme  
-https://twitter.com/pxmme1337  
+    While I made the server.py the /js/script.js file is entirely the creation of Pomme  
+    https://github.com/Pxmme  
+    https://twitter.com/pxmme1337  
 
 # Install Notes (ubuntu 22.04/debian): 
     pip install -r requirements.txt    
