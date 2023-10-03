@@ -1,4 +1,4 @@
-# gptvoicewebsite
+# GPT Voice Website
 Talk to GPT over Browser ->STT->GPT->TTS
 
 # Note:  
