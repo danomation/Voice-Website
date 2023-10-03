@@ -10,7 +10,7 @@ https://twitter.com/pxmme1337
     pip install -r requirements.txt    
     python3 server.py
   Define variables in server.py, add right url to script.js and index.html  
-  Add index.html, /js/script.js to your webserver  
+  Add index.html, /images/, recordings/, and /js/script.js to your webserver  
 
 
 # Demo: 
