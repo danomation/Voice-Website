@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wintermute</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="/js/jquery.cookie.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bevan&display=swap" rel="stylesheet">
+    <style>
+    body {
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+    }
+    #chat {
+      font-family: 'Bevan', cursive;
+      font-size: 1.5vh;
+      white-space: pre-line;
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+      width: 35vw;
+      height: 100vh;
+      position: fixed;
+      top: 2vh;
+      left:0px;
+      padding: 1vh;
+      border: none;
+      color: #0fa;
+      cursor: pointer;
+      word-wrap: break-word;
+      overflow-x:hidden;
+      overflow-y:auto;
+      border-radius: 0px;
+      font-size: 2vh;
+      display: none;
+    }
+    #messagecolor {
+      text-shadow:
+          0 0 1vw #0fa,
+          0 0 2vw #0fa;
+    }
+    #videobackground {
+        position: fixed;
+        bottom: 0vh;
+        right: 0vh;
+        min-width: 100vw;
+        min-height: 100vh;
+        max-width: 270vw;
+        max-height: 200vh;
+        filter: grayscale(50%) brightness(20%);
+    }
+
+    #circle {
+        filter: drop-shadow(12px 12px 25px rgba(0,100,100,0.8));
+        filter: blur(1px);
+        opacity: 0.5;
+        position: absolute;
+        background-size: cover;
+        .blend-overlay{ mix-blend-mode: overlay; }
+        height: 80vh;
+        animation: pulse 1s infinite alternate; 
+                --scale-factor: 0.1; 
+    }
+
+    @keyframes pulse {
+        to {
+            transform: scale(calc(1 + var(--scale-factor)));
+        }
+    }
+    ::-webkit-scrollbar {
+        height: 12px;
+        width: 12px;
+        background: #000;
+        opacity: 0.8;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #0fa;
+        border-radius: 50%;
+        -webkit-border-radius: 1ex;
+        -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+    }
+
+    ::-webkit-scrollbar-corner {
+        background: #000;
+    }
+    @-webkit-keyframes image_blur {
+        0% { -webkit-filter: blur(0px);}
+        50% { -webkit-filter: blur(5px);}
+        100% { -webkit-filter: blur(0px);}
+    }
+    </style>
+</head>
+<body>
+<video onloadstart="this.playbackRate=1;" playsinline autoplay muted loop disablepictureinpicture id="videobackground">
+  <source src="./images/wintermute_background.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+<source src="./images/loop.mp3">
+</audio>-->
+<img src="./images/wintermute_icon.png" id="circle">
+<div id="chat">
+</div>
+<div id="chat2">
+</div>
+<script>
+$( document ).ready(function(){
+    $.ajaxSetup({
+        cache: false,
+    });
+$("#chat").delay(1000).slideDown(1000);
+function loadText(){
+     $.get("./recordings/chat.txt", function(data) {
+         $("#chat").html(data.split("\n").slice(-128).reverse().join("\n"));
+     });
+}
+
+setInterval(function(){
+    loadText();
+    loadText2();
+}, 1000);
+});
+
+</script>
+<script src="./js/script.js"></script>
+</body>
+</html>
