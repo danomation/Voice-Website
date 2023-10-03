@@ -1,0 +1,10 @@
+wget
+colorama
+openai
+gtts
+flask
+flask_socketio
+flask_cors
+pedalboard
+pydub
+...
