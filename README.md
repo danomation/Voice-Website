@@ -11,7 +11,7 @@ Talk to GPT over Browser
     python3 server.py
   Define variables in server.py, add right url to script.js and index.html  
   Add index.html, /images/, recordings/, and /js/script.js to your webserver  
-  Might be good to add the following cron:
+  Might be good to add the following cron: 
     0 * * * * cd /path/to/your/recordings/ && find . -name "*.ogg" -type f -delete
     0 * * * * cd /path/to/your/recordings/ && find . -name "reply_*.mp3" -type f -delete
     @reboot nohup python3 /path/to/your/dir/server.py \&
