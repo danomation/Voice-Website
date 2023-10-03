@@ -1,5 +1,5 @@
 # GPT Voice Website
-Talk to GPT over Browser ->STT->GPT->TTS
+Talk to GPT over Browser  
 
 # Note:  
 While I made the server.py the /js/script.js file is entirely the creation of Pomme  
