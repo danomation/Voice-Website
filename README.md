@@ -9,6 +9,8 @@ https://twitter.com/pxmme1337
 # Install Notes (ubuntu 22.04/debian): 
     pip install -r requirements.txt    
     python3 server.py
+  Define variables in server.py  
+  add variables to script.py and index.html  
 
 
 # Demo: 
