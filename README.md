@@ -8,7 +8,8 @@ https://twitter.com/pxmme1337
 
 
 # Instructions:
-Fresh Ubuntu 22.04, open root, install requirements etc
+Fresh Ubuntu 22.04, open root  
+pip install -r requirements.txt   
 
 
 # Demo: 
