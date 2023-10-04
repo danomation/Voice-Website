@@ -18,6 +18,6 @@ Talk to GPT over Browser
 
 
 # Demo: 
-[![GPT Voice Website](https://img.youtube.com/vi/mGhKgAiBPrY/0.jpg)](https://youtu.be/mGhKgAiBPrY)  
+[![GPT Voice Website](https://img.youtube.com/vi/wnMF5H6Ij5E/0.jpg)](https://youtu.be/wnMF5H6Ij5E)  
 donate for automation/scripting updates! https://www.patreon.com/Wintermute310  
  
