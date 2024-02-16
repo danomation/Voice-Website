@@ -9,7 +9,7 @@ from colorama import Fore
 import wget
 
 #for gpt and whisper STT
-import openai
+from openai import OpenAi
 
 #audio processing
 from pydub import AudioSegment, effects
@@ -36,7 +36,7 @@ from flask_cors import CORS
 
 ##
 # API KEYS
-openai.api_key = ""
+client = OpenAI(api_key = "")
 elevenlabs_api_key = ""
 set_api_key(elevenlabs_api_key)
 ##
@@ -78,15 +78,15 @@ def handle_exception(e):
 def sendgpt(message, session_history):
     messages = []
     messages = session_history
-    chat = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+    chat = client.chat.completions.create(
+        model="gpt-4-turbo-preview",
         messages=messages,
         temperature=1.2,
         max_tokens=1024,
         user="web"
     )
-    session_history.append({"role": "assistant","content": chat["choices"][0]["message"]["content"]},)
-    reply =  str(chat["choices"][0]["message"]["content"])
+    session_history.append({"role": "assistant","content": chat.choices[0].message.content},)
+    reply =  str(chat.choices[0].message.content)
     return reply, session_history
 
 def sendtts(message):
@@ -95,7 +95,7 @@ def sendtts(message):
     if tts_provider == "elevenlabs":
         voice="Rachel",
         #voice="vKECufy6OSQM8LSmvMEi", #my voice selection private to me - wintermute
-        model="eleven_monolingual_v1",
+        model="eleven_turbo_v2",
         stream=False
         )
         save(audio, file_path)
@@ -160,7 +160,8 @@ class AudioNamespace(Namespace):
             audioFile.write(audioBuffer)
             print('-- File saved for session ' + str(session['sid']))
         audio_file = open(recordings_dir + outputfile, "rb")
-        transcript = openai.Audio.transcribe("whisper-1", audio_file, prompt=(None,"transcribe this into English for me.","This will never be in a foreign language.","Do not remove punctuation words.")) #dunno what prompt does man
+        transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)) 
+        print(transcript)
         transcript = str(transcript.text)
 
         #regex to match only english characters - helps with whisper hallucinations. 
