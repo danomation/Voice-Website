@@ -79,7 +79,7 @@ def sendgpt(message, session_history):
     messages = []
     messages = session_history
     chat = client.chat.completions.create(
-        model="gpt-4-turbo-preview",
+        model="gpt-4o",
         messages=messages,
         temperature=1.2,
         max_tokens=1024,
